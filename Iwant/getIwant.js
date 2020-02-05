@@ -62,6 +62,7 @@ for (let i in allWant) {
     tmp.push(`${name}死亡率`);
 }
 out.push(tmp);
+let d = new Date();
 fs.readdirSync("./../data_json")
     .filter(_ => _.endsWith('.json'))
     .sort((a,b) => parseInt(a.replace(/[-.json]+/g,'0')) - parseInt(b.replace(/[-.json]+/g,'0')))
@@ -89,4 +90,4 @@ fs.readdirSync("./../data_json")
         }
         out.push(tmp);
     });
-fs.writeFileSync('out.csv',out.map(_ => _.join(',')).join('\r\n'),'utf-8');
+fs.writeFileSync(`${d.getYear() + 1900}-${d.getMonth() + 1}-${d.getDate()}.csv`,out.map(_ => _.join(',')).join('\r\n'),'utf-8');

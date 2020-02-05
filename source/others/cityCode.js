@@ -3,7 +3,9 @@ let out = {
     name2Code: {},
     code2Name: {},
     province2Code: {},
-    code2Province: {}
+    code2Province: {},
+    all2Code: {},
+    code2All: {}
 };
 fs.readFileSync('cityCode.txt','utf-8')
     .split(/[\r\n]/)
@@ -18,7 +20,8 @@ fs.readFileSync('cityCode.txt','utf-8')
             out.name2Code[_[0]] = {};
             out.code2Name[_[0]] = {};
         }
-
+        out.all2Code[_[1]] = _[0];
+        out.code2All[_[0]] = _[1];
         out.name2Code[_[0].substring(0,2) + "0000"][_[1]] = _[0];
         out.code2Name[_[0].substring(0,2) + "0000"][_[0]] = _[1];
     });

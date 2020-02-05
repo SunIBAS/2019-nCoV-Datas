@@ -30,8 +30,14 @@
 
 - [行政代码](http://www.mca.gov.cn/article/sj/xzqh/2019/)
 
-- 最后附带一些其他资料
+- 附带一些其他资料
 
 > [AkShare](https://akshare.readthedocs.io/zh_CN/latest/index.html)
 
 > [AkShare 事件数据](https://github.com/jindaxiang/akshare/blob/4434da3af4ea7a3a7b73d2e95b6a1a654c8f5ae3/docs/source/data/event/event.md)
+
+- 地区说明
+
+> 新疆的十二个师，来源于[百度知道](https://zhidao.baidu.com/question/589049747264743725.html)资料，以驻地为准，多个驻地以第一个为准
+
+![](./pic/新疆十二师.jpg)

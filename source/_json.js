@@ -12,5 +12,5 @@ fs.readdirSync(dir)
                     json[line[0]] = line;
                 }
             });
-        fs.writeFileSync(file.replace('.txt','.json'),JSON.stringify(json),'utf-8');
+        fs.writeFileSync('./../data_json' + file.replace('.txt','.json'),JSON.stringify(json),'utf-8');
     });

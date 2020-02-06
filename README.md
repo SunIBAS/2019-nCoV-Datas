@@ -4,26 +4,9 @@
 
 > 今日开始加入处理才知道数据获取很难，今后一定要及时掌握数据
 
-## 使用我的代码处理我的数据
+> 新增两个接口 [查询数据接口](http://www.sunibas.cn/ill/info) 和 [下载接口](http://www.sunibas.cn/ill/down?filename=)
 
-> 1.安装 [Node.js](http://nodejs.cn/download/)，版本在8以后即可
-
-> 2.执行以下命令行
-
-```cmd
-:: 项目位置 2019-nCoV-Datas>
-cd source
-:: 处理 all.txt 文件夹
-node dear_all.js
-:: 处理 csv 文件
-node dearCsv.js
-:: 处理 json 文件
-node dearJson.js
-:: 生成 json 文件
-node _json.js
-```
-
-> 提取自己需要数据，可以看 Iwant 中的代码
+![](./pic/api.png)
 
 ## 项目内容说明
 
@@ -53,6 +36,42 @@ node _json.js
 |source\_json.js|用于将 datas 中的内容转换为 json 并以[行政代码]为[键]|
 |getChinaChange.js|用于获取截至到目前为止最新的疫情统计数据(全国)|
 |downCsv.sh|定时任务脚本，但是要自己设定，设定方式在#里|
+|autoRefleshAndDear.js|自动从服务器下载和处理每日数据|
+
+- autoRefleshAndDear.js 脚本说明
+
+```javascript
+// 因为 csv 数据是从 1-31 开始
+// 而 json 数据是从 2-4 开始，存在交集
+// 这部分代码我没有使用 _dcsv 因为他的数据我真觉得很难处理和收据不全
+const dearFiles = () => {
+    _djson(basePath,norepeat,function () {
+        _json(basePath,norepeat,function () {
+            console.log("完成");
+        });
+    })
+};
+
+// _dcsv 版本如下
+const dearFiles = () => {
+    _dcsv(basePath,norepeat,function () {
+        _json(basePath,norepeat,function () {
+            console.log("完成");
+        });
+    })
+};
+
+// 可以 _dcsv 和 _json 一起使用
+const dearFiles = () => {
+    _dcsv(basePath,norepeat,function () {
+        _djson(basePath,norepeat,function () {
+            _json(basePath,norepeat,function () {
+                console.log("完成");
+            });
+        })
+    })
+};
+```
 
 - [行政代码](http://www.mca.gov.cn/article/sj/xzqh/2019/)
 

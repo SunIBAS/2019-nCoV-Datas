@@ -117,8 +117,9 @@ for (let i in files) {
         if (province.subList && province.subList.length) {
             province.subList.forEach(city => {
                 let cityCode = getCode(city.city,provinceIndex);
+                cityCode = (cityCode === -2 ? -1 : cityCode);
                 out.push([cityCode,
-                    code.code2Name[provinceIndex][cityCode],
+                    cityCode === -1 ? city.city : code.code2Name[provinceIndex][cityCode],
                     city.confirmed || 0,
                     0,
                     city.crued || 0,
@@ -126,5 +127,6 @@ for (let i in files) {
             });
         }
     });
+    out.sort((a,b) => parseInt(a) - parseInt(b));
     fs.writeFileSync('../datas/' + files[i],out.map(_ => _.join(',')).join('\r\n'));
 }

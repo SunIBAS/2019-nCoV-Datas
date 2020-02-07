@@ -47,6 +47,7 @@
 const dearFiles = () => {
     _djson(basePath,norepeat,function () {
         _json(basePath,norepeat,function () {
+            //lastTask();
             console.log("完成");
         });
     })
@@ -56,6 +57,7 @@ const dearFiles = () => {
 const dearFiles = () => {
     _dcsv(basePath,norepeat,function () {
         _json(basePath,norepeat,function () {
+            //lastTask();
             console.log("完成");
         });
     })
@@ -66,11 +68,146 @@ const dearFiles = () => {
     _dcsv(basePath,norepeat,function () {
         _djson(basePath,norepeat,function () {
             _json(basePath,norepeat,function () {
+                //lastTask();
                 console.log("完成");
             });
         })
     })
 };
+```
+
+
+- 定时执行命令行 autoRefleshAndDear.exe 源码
+
+> 使用方法 autoRefleshAndDear 间隔时间(ms) 命令行
+
+```c++
+// 这个软件的目的是定时执行任务，因为懒得再服务器配置GitHub同步
+#include <stdlib.h>
+#include <Windows.h>
+#include <string>
+#include <stdio.h>
+#define _CRT_SECURE_NO_WARNINGS
+int main(int argc, char* argv[]) {
+	if (argc != 3) {
+		printf("调用方式为: 程序名 times command\r\ntimes\t表示没间隔多长时间执行一次 command");
+		return 0;
+	}
+	unsigned long times = std::stoul(argv[1]);
+	while (true) {
+		system(argv[2]);
+		Sleep(times);
+	}
+	return 0;
+}
+```
+
+- 转换编码 converter.exe 源码
+
+> 编写理由，node 无法正常保存含中文的文件，在windows系统下会出现乱码问题，可以使用 type 命令查看即知
+
+> 使用方法 converter inputFile outputFile 或 converter file
+
+```c++
+#include <stdio.h>
+#include <locale>
+#include <codecvt>
+#include <iostream>
+#include <fstream>
+#include <vector>
+
+const std::wstring utf8_2_ws(const std::string& src)
+{
+	std::wstring_convert<std::codecvt_utf8<wchar_t> > conv;
+	return conv.from_bytes(src);
+}
+
+//wstring=>string
+std::string WString2String(const std::wstring& ws)
+{
+	std::string strLocale = setlocale(LC_ALL, "");
+	const wchar_t* wchSrc = ws.c_str();
+	size_t nDestSize = std::wcstombs(NULL, wchSrc, 0) + 1;
+	char *chDest = new char[nDestSize];
+	memset(chDest, 0, nDestSize);
+	std::wcstombs(chDest, wchSrc, nDestSize);
+	std::string strResult = chDest;
+	delete[]chDest;
+	setlocale(LC_ALL, strLocale.c_str());
+	return strResult;
+}
+// string => wstring
+std::wstring String2WString(const std::string& s)
+{
+	std::string strLocale = setlocale(LC_ALL, "");
+	const char* chSrc = s.c_str();
+	size_t nDestSize = mbstowcs(NULL, chSrc, 0) + 1;
+	wchar_t* wchDest = new wchar_t[nDestSize];
+	wmemset(wchDest, 0, nDestSize);
+	mbstowcs(wchDest, chSrc, nDestSize);
+	std::wstring wstrResult = wchDest;
+	delete[]wchDest;
+	setlocale(LC_ALL, strLocale.c_str());
+	return wstrResult;
+}
+
+void DearOneFile(char * inputFile) {
+	std::ifstream infile;
+	infile.open(inputFile);
+	if (!infile.is_open()) {
+		std::cout << "文件无法打开" << std::endl;
+		return;
+	}
+	std::string instr;
+	std::vector<std::string> out;
+	while (!infile.eof()) {
+		infile >> instr;
+		out.push_back(WString2String(utf8_2_ws(instr)));
+	}
+	infile.close();
+	std::ofstream outfile;
+	outfile.open(inputFile);
+	for (auto line = out.begin(); line != out.end(); line++) {
+		outfile << *line << std::endl;
+	}
+	outfile.close();
+}
+
+void DearTwoFile(char * inputFile, char * outputFile) {
+	//char * inputFile = argv[1];// "C:\\Users\\HUZENGYUN\\Documents\\git\\文档\\2019-nCoV-Datas\\datas\\2019-12-01.txt";
+	//char * outputFile = argv[2];// "C:\\Users\\HUZENGYUN\\Documents\\git\\文档\\2019-nCoV-Datas\\datas\\2019-12-01.out.txt";
+	std::ifstream infile;
+	std::ofstream outfile;
+	infile.open(inputFile);
+	outfile.open(outputFile);
+	if (!infile.is_open()) {
+		std::cout << "文件无法打开" << std::endl;
+		return;
+	}
+	std::string instr;
+	std::string outstr;
+	while (!infile.eof()) {
+		infile >> instr;
+		outstr = WString2String(utf8_2_ws(instr));
+		outfile << outstr << "\r\n";
+	}
+	infile.close();
+	outfile.close();
+}
+
+int main(int argc, char* argv[]) {
+	if (argc == 2) {
+		DearOneFile(argv[1]);
+	} else if (argc == 3) {
+		DearTwoFile(argv[1], argv[2]);
+	}
+	else {
+		std::cout << "程序名 输入文件 输出文件" << std::endl;
+		std::cout << "程序名 输入文件(输出文件)" << std::endl;
+	}
+
+	return 0;
+}
 ```
 
 - [行政代码](http://www.mca.gov.cn/article/sj/xzqh/2019/)

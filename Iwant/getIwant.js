@@ -48,7 +48,13 @@ let allWant = {
     "池州":"341700",
     "宣城":"341800",
 };
-let code = require('./../source/others/cityCode.json');
+const basePath = (() => {
+    const b = "2019-nCoV-Datas";
+    const p = process.cwd();
+    return p.substring(0,p.indexOf(b) + b.length);
+})();
+
+let code = require(basePath + '/source/others/cityCode.json');
 
 let out = [];
 let tmp = ["时间"];
@@ -63,11 +69,11 @@ for (let i in allWant) {
 }
 out.push(tmp);
 let d = new Date();
-fs.readdirSync("./../data_json")
+fs.readdirSync(basePath + "/data_json")
     .filter(_ => _.endsWith('.json'))
     .sort((a,b) => parseInt(a.replace(/[-.json]+/g,'0')) - parseInt(b.replace(/[-.json]+/g,'0')))
     .forEach(file => {
-        let content = require("./../data_json/" + file);
+        let content = require(basePath + "/data_json/" + file);
         tmp = [file.split('.json')[0]];
         for (let i in allWant) {
             if (allWant[i] in content) {

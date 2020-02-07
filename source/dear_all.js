@@ -41,7 +41,7 @@ for (let i in data) {
                 }
             }
             out.push([
-                d[6] || "999999",name || d[5],
+                d[6] || "-1",name || d[5],
                 d[7],d[8],d[9],d[10]
             ]);
         } else if (d[3]) {
@@ -56,6 +56,7 @@ for (let i in data) {
             ]);
         }
     });
+    out.sort((a,b) => parseInt(a) - parseInt(b));
     fs.writeFileSync(`../datas/${i}.txt`,out.map(_ => _.join(',')).join('\r\n'));
 }
 

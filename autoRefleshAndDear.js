@@ -1,5 +1,6 @@
 const http = require('http');
 const fs = require("fs");
+const spawn = eval('require')('child_process').spawn;
 const _json = require('./source/_forAuto/_json');
 const _dcsv = require('./source/_forAuto/_dearCsv');
 const _djson = require('./source/_forAuto/_dearJson');
@@ -30,6 +31,7 @@ const myFetch = (url) => {
     });
 };
 function toDownFile(fileName,type,cb) {
+    console.log(`to download file >>> ${fileName}`);
     myFetch(url.down + fileName)
         .then(data => {
             fs.writeFileSync(downDir[type] + fileName,data,'utf-8');
@@ -39,9 +41,11 @@ function toDownFile(fileName,type,cb) {
 const toUpdateFile = () => {
     let allTask = (function () {
         let task = 0;
+        let filenames = [];
         return {
-            add() {
+            add(filename) {
                 task++;
+                filenames.push(filename);
             },
             cut() {
                 task--;
@@ -87,10 +91,31 @@ const toUpdateFile = () => {
 
 const basePath = process.cwd();
 
+const lastTask = () => {
+    let fn = function(filename) {
+        spawn(`converter.exe ${filename}`, {
+            shell: true,
+        });
+    };
+    fs.readdirSync('data_json')
+        .filter(_ => _.endsWith('.json'))
+        .forEach(json => {
+            fn('data_json\\' + json);
+        });
+    fs.readdirSync('datas')
+        .filter(_ => _.endsWith('.txt'))
+        .forEach(json => {
+            fn('datas\\' + json);
+        });
+};
+
 const dearFiles = () => {
     _djson(basePath,norepeat,function () {
         _json(basePath,norepeat,function () {
             console.log("完成");
+            // console.log("开始转化文件");
+            // lastTask();
+            // console.log("文件转化完成");
         });
     })
 };

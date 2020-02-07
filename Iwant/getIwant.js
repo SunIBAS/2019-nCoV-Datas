@@ -97,7 +97,7 @@ fs.readdirSync(basePath + "/data_json")
         }
         out.push(tmp);
     });
-fs.writeFileSync(`${d.getYear() + 1900}-${d.getMonth() + 1}-${d.getDate()}.csv`,out.map(_ => _.join(',')).join('\r\n'),'utf-8');
+fs.writeFileSync(basePath + `\\${d.getYear() + 1900}-${d.getMonth() + 1}-${d.getDate()}.csv`,out.map(_ => _.join(',')).join('\r\n'),'utf-8');
 
 let fn = function(filename) {
     spawn(`converter.exe ${filename}`, {

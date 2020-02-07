@@ -1,4 +1,5 @@
 const fs = require('fs');
+const spawn = eval('require')('child_process').spawn;
 let allWant = {
     "中国": "000000",
     "湖南":"430000",
@@ -97,3 +98,12 @@ fs.readdirSync(basePath + "/data_json")
         out.push(tmp);
     });
 fs.writeFileSync(`${d.getYear() + 1900}-${d.getMonth() + 1}-${d.getDate()}.csv`,out.map(_ => _.join(',')).join('\r\n'),'utf-8');
+
+let fn = function(filename) {
+    spawn(`converter.exe ${filename}`, {
+        shell: true,
+    });
+};
+fs.readdirSync(basePath + '/Iwant')
+    .filter(_ => _.endsWith('.csv'))
+    .forEach(_ => fn(basePath + '/Iwant/' + _));

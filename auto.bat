@@ -3,5 +3,5 @@ node autoRefleshAndDear.js
 node Iwant/getIwant.js
 
 git add *
-git commit -m"%date% %time% 提交"
+git commit -m"%date% %time% update data"
 git push

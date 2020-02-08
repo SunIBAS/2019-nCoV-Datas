@@ -56,6 +56,27 @@ for (let i in data) {
             ]);
         }
     });
+    if (i === '2020-01-20') {
+        `420100,武汉市,258,0,27,3
+421100,黄冈市,12,0,0,0`.split(/[\r\n]/).filter(_ => _)
+            .forEach(line => {
+                line.split(',').forEach(_ => out.push(_));
+            });
+    } else if (i === "2020-01-21") {
+        `420100,武汉市,343,0,27,3
+421100,黄冈市,12,0,0,0`.split(/[\r\n]/).filter(_ => _)
+            .forEach(line => {
+                line.split(',').forEach(_ => out.push(_));
+            });
+    } else if (i === "2020-01-22") {
+        `420100,武汉市,405,0,27,11
+421100,黄冈市,12,0,0,0
+420800,荆门市,1,0,0,0
+421000,荆州市,6,0,0,0`.split(/[\r\n]/).filter(_ => _)
+            .forEach(line => {
+                line.split(',').forEach(_ => out.push(_));
+            });
+    }
     out.sort((a,b) => parseInt(a) - parseInt(b));
     fs.writeFileSync(`../datas/${i}.txt`,out.map(_ => _.join(',')).join('\r\n'));
 }

@@ -1,9 +1,9 @@
 // 目的是让每个文件都有省的信息
 const fs = require("fs");
 const {
-    province2Code,
+    code2Province,
     code2Name
-} = require('./../others/cityCode.json');
+} = require('./others/cityCode.json');
 function toBeFormat(basePath,cb) {
     const dir = basePath + "/datas";
     cb = cb || (() => {});
@@ -131,4 +131,8 @@ function toBeFormat(basePath,cb) {
     cb();
 }
 
-module.exports = toBeFormat;
+toBeFormat((() => {
+    const b = "2019-nCoV-Datas";
+    const p = process.cwd();
+    return p.substring(0,p.indexOf(b) + b.length);
+})());

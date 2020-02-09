@@ -32,7 +32,7 @@ fs.readdirSync(path.join(basePath,'data_json'))
     .forEach(json => {
         let data = require(path.join(basePath,'data_json',json));
         let map = copyOneMap(data);
-        fs.writeFileSync(path.join(basePath,'test','html','out',json),JSON.stringify(map));
+        fs.writeFileSync(path.join(basePath,'extend','web','html','out',json),JSON.stringify(map));
     });
 
 

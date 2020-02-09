@@ -122,6 +122,10 @@
             .then(_ => _.text())
             .then(JSON.parse)
             .then(json => {
+                // 只要 1-18 开始的数据，因为前面都是武汉一个城市
+                return json.filter((_,ind) => ind >= 48);
+            })
+            .then(json => {
                 window.task = json.length;
                 window.id = setInterval(function () {
                     if (!window.task) {

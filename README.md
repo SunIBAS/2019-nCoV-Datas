@@ -40,6 +40,33 @@
 |downCsv.sh|定时任务脚本，但是要自己设定，设定方式在#里|
 |autoRefleshAndDear.js|自动从服务器下载和处理每日数据|
 
+- extend 目录说明
+
+> 里面是一个服务，2019-12-01-2020-02-08.mp4 是我录制的一个视频，而html里面是服务，用于展示该项目中所有时间段内地数据在地图上的显示
+
+```
+web
+│  makeOneMapJson.js    执行这个文件可以同步 html/out 内的json
+│  serve.js             执行这个服务后，在本地访问 localhost:3000
+│
+└─html
+    │  index.html       页面内容，当前动画只显示 1-18 号开始的确诊情况
+    │                   (如果有需要可以自行修改，说明一点，我这个代码效率极低)
+    ├─leaflet@1.6.0     地图组件
+    │      leaflet.css
+    │      leaflet.js
+    │
+    └─out               地图显示的确诊数据
+            2019-12-01.json
+            2019-12-02.json
+这里需要说明一点，如果想要更新 out 里面的数据到当前日期
+可以在项目根目录下运行以下命令
+node autoRefleshAndDear.js  :: 更新每日疫情数据到本地
+node extend/web/makeOneMapJson.js :: 更新地图数据
+```
+
+![](./pic/2020-02-09确诊数据.png)
+
 - autoRefleshAndDear.js 脚本说明
 
 ```javascript

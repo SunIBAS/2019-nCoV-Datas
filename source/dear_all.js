@@ -24,6 +24,10 @@ for (let i in data) {
             if (!name) {
                 // 注意他的东宁市 宁夏的，但是cityCode中的东宁市是黑龙江的
                 switch (d[5]) {
+                    case "第七师":
+                        d[6] = 654003;
+                        name = codes.code2Name[d[4]][d[6]];
+                        break;
                     case "第八师石河子市":
                         d[6] = 659001;
                         name = codes.code2Name[d[4]][d[6]];
@@ -60,13 +64,17 @@ for (let i in data) {
         `420100,武汉市,258,0,27,3
 421100,黄冈市,12,0,0,0`.split(/[\r\n]/).filter(_ => _)
             .forEach(line => {
-                line.split(',').forEach(_ => out.push(_));
+                let o = [];
+                line.split(',').forEach(_ => o.push(_));
+                out.push(o);
             });
     } else if (i === "2020-01-21") {
         `420100,武汉市,343,0,27,3
 421100,黄冈市,12,0,0,0`.split(/[\r\n]/).filter(_ => _)
             .forEach(line => {
-                line.split(',').forEach(_ => out.push(_));
+                let o = [];
+                line.split(',').forEach(_ => o.push(_));
+                out.push(o);
             });
     } else if (i === "2020-01-22") {
         `420100,武汉市,405,0,27,11
@@ -74,10 +82,17 @@ for (let i in data) {
 420800,荆门市,1,0,0,0
 421000,荆州市,6,0,0,0`.split(/[\r\n]/).filter(_ => _)
             .forEach(line => {
-                line.split(',').forEach(_ => out.push(_));
+                let o = [];
+                line.split(',').forEach(_ => o.push(_));
+                out.push(o);
             });
     }
     out.sort((a,b) => parseInt(a) - parseInt(b));
-    fs.writeFileSync(`../datas/${i}.txt`,out.map(_ => _.join(',')).join('\r\n'));
+    fs.writeFileSync(`../datas/${i}.txt`,out.filter(_ => _.length > 2).map(_ => {
+        if (!_.join) {
+            return '';
+        }
+        return _.join(',');
+    }).join('\r\n'));
 }
 

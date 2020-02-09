@@ -29,7 +29,9 @@ const pro = code.province2Code;
     };
 })();
 
-let files = {};
+let files = {
+    // "2-9.json": "2020-02-09.txt"
+};
 fs.readdirSync('jsonFile').filter(_ => _.endsWith(".json")).forEach(_ => {
         files[_] = '2020-' + _.split('.')[0]
             .split('-')

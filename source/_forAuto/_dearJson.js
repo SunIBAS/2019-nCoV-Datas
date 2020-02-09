@@ -126,6 +126,10 @@ function doJson(basePath,norepeat,cb) {
             if (province.subList && province.subList.length) {
                 province.subList.forEach(city => {
                     let cityCode = getCode(city.city,provinceIndex);
+                    cityCode = (cityCode === -2 ? -1 : cityCode);
+                    if (cityCode === '-1') {
+                        console.log(city);
+                    }
                     out.push([cityCode,
                         code.code2Name[provinceIndex][cityCode],
                         city.confirmed || 0,

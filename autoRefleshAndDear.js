@@ -20,7 +20,25 @@ const myFetch = (url) => {
     return new Promise(function (succ,fail) {
         http.get(url,(resp) => {
             let data = '';
-            resp.on('data',(chunk) => data += chunk);
+            resp.on('data',(chunk) => {
+                data += chunk.toString();
+            });
+            resp.on('end',() => {
+                succ(data);
+            });
+            resp.on("error",err => {
+                fail(err);
+            });
+        });
+    });
+};
+const downFile = (url) => {
+    return new Promise(function (succ,fail) {
+        http.get(url,(resp) => {
+            let data = [];
+            resp.on('data',(chunk) => {
+                data.push(chunk);
+            });
             resp.on('end',() => {
                 succ(data);
             });
@@ -32,10 +50,14 @@ const myFetch = (url) => {
 };
 function toDownFile(fileName,type,cb) {
     console.log(`to download file >>> ${fileName}`);
-    myFetch(url.down + fileName)
+    downFile(url.down + fileName)
         .then(data => {
-            fs.writeFileSync(downDir[type] + fileName,data,'utf-8');
-        }).then(cb);
+            let ws = fs.createWriteStream(downDir[type] + fileName);
+            data.forEach(ws.write.bind(ws));
+            ws.end();
+            // fs.writeFileSync(downDir[type] + fileName,data,'utf-8');
+        })
+        .then(cb);
 }
 
 const toUpdateFile = () => {

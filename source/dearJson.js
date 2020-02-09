@@ -118,6 +118,9 @@ for (let i in files) {
             province.subList.forEach(city => {
                 let cityCode = getCode(city.city,provinceIndex);
                 cityCode = (cityCode === -2 ? -1 : cityCode);
+                if (cityCode === '-1') {
+                    console.log(city);
+                }
                 out.push([cityCode,
                     cityCode === -1 ? city.city : code.code2Name[provinceIndex][cityCode],
                     city.confirmed || 0,

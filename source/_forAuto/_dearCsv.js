@@ -155,17 +155,26 @@ function doCsv(basePath,norepeat,cb) {
             }
         }
     }
-    let ind = 0;
     for (let i in file) {
         let out = [
             ["flag","area","confirmed","suspected","cured","dead"]
         ];
         let keys = [];
         console.log("start to dear with file => " + i);
-        more.中国[ind] ? out.push(["000000","中国",more.中国[ind][0],more.中国[ind][1],more.中国[ind][2],more.中国[ind][3]]) : false;
-        more.香港[ind] ? out.push(["810000","香港特别行政区",more.香港[ind][0],more.香港[ind][1],more.香港[ind][2],more.香港[ind][3]]) : false;
-        ind++;
-        console.log(i);
+        let morInd = -1;
+        if (i === '1-31.csv') {
+            morInd = 0;
+        } else if (i === '2-1.csv') {
+            morInd = 1;
+        } else if (i === '2-2.csv') {
+            morInd = 2;
+        } else if (i === '2-3.csv') {
+            morInd = 3;
+        }
+        if (morInd !== -1) {
+            out.push(["000000","中国",more.中国[morInd][0],more.中国[morInd][1],more.中国[morInd][2],more.中国[morInd][3]]);
+            out.push(["810000","香港特别行政区",more.香港[morInd][0],more.香港[morInd][1],more.香港[morInd][2],more.香港[morInd][3]]);
+        }
         fs.readFileSync(basePath + 'source\\csvFile\\' + i,'utf-8')
             .split(/[\r\n]/)
             .map(_ => _.split(','))

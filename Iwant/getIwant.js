@@ -4,6 +4,8 @@ let allWant = {
     "中国": "000000",
     "湖北":"420000",
     "武汉":"420100",
+    "深圳": "440300",
+    "广东": "440000"
 };
 const basePath = (() => {
     const b = "2019-nCoV-Datas";
@@ -27,11 +29,9 @@ let tmp = ["时间"];
 for (let i in allWant) {
     let name = code.code2All[allWant[i]];
     name = name || "中国";
-    tmp.push(`${name}确诊`);
-    tmp.push(`${name}疑似`);
-    tmp.push(`${name}治愈`);
-    tmp.push(`${name}死亡`);
-    tmp.push(`${name}死亡率`);
+    outLabel.forEach(_ => {
+        tmp.push(`${name}-${_}`);
+    });
 }
 out.push(tmp);
 let d = new Date();
@@ -56,11 +56,7 @@ fs.readdirSync(basePath + "/data_json")
                 if (file === "2020-02-01.json") {
                     console.log(`${i}\t${allWant[i]}`);
                 }
-                tmp.push('-');
-                tmp.push('-');
-                tmp.push('-');
-                tmp.push('-');
-                tmp.push('-');
+                outLabel.forEach(() => tmp.push('-'));
             }
         }
         out.push(tmp);

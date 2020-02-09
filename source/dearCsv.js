@@ -45,7 +45,11 @@ const more = {
     "香港": `13	0	0	0
 14	0	0	0
 15	0	0	0
-15	0	0	0`.split(/[\r\n]/).map(_ => _.split('\t').filter(_ => _))
+15	0	0	0`.split(/[\r\n]/).map(_ => _.split('\t').filter(_ => _)),
+    "台湾": `10 0 0 0
+    10 0 0 0
+    10 0 0 0
+    10 0 0 0`.split(/[\r\n]/).map(_ => _.split(' ').filter(_ => _)),
 };
 
 let getCode = (function () {
@@ -167,6 +171,7 @@ for (let i in file) {
     if (morInd !== -1) {
         out.push(["000000","中国",more.中国[morInd][0],more.中国[morInd][1],more.中国[morInd][2],more.中国[morInd][3]]);
         out.push(["810000","香港特别行政区",more.香港[morInd][0],more.香港[morInd][1],more.香港[morInd][2],more.香港[morInd][3]]);
+        out.push(["710000","台湾省",more.台湾[morInd][0],more.台湾[morInd][1],more.台湾[morInd][2],more.台湾[morInd][3]]);
     }
     console.log(i);
     fs.readFileSync('csvFile\\' + i,'utf-8')

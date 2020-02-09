@@ -35,7 +35,8 @@
 |source\dear_all.js|用于处理 all.txt 文件|
 |source\dearCsv.js|用于处理 csvFile 中的文件|
 |source\dearJson.js|用于处理 jsonFile 中的文件|
-|source\_json.js|用于将 datas 中的内容转换为 json 并以[行政代码]为[键]|
+|source\ _json.js|用于将 datas 中的内容转换为 json 并以[行政代码]为[键]|
+|source\toBeFormat.js|用于将只有区的没有市，只有市没有省的数据进行补全|
 |getChinaChange.js|用于获取截至到目前为止最新的疫情统计数据(全国)|
 |downCsv.sh|定时任务脚本，但是要自己设定，设定方式在#里|
 |autoRefleshAndDear.js|自动从服务器下载和处理每日数据|

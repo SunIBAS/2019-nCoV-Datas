@@ -12,14 +12,14 @@ const basePath = (() => {
     const p = process.cwd();
     return p.substring(0,p.indexOf(b) + b.length);
 })();
-const pointLength = 5; // 保留小数点几位
+const pointLength = 3; // 保留小数点几位
 const toPersent = true; // 转成百分比
 const labels = {
-    "确诊"(d) { return d[2]; },
-    "疑似"(d) { return d[3]; },
-    "治愈"(d) { return d[4]; },
-    "死亡"(d) { return d[5]; },
-    "死亡率"(d) { return (d[5] / d[2]  * (toPersent ? 100 : 1)).toFixed(pointLength - (toPersent ? 2 : 0)) ; },
+    "确诊"(d) { return d[2] || 0; },
+    "疑似"(d) { return d[3] || 0; },
+    "治愈"(d) { return d[4] || 0; },
+    "死亡"(d) { return d[5] || 0; },
+    "死亡率"(d) { return (d[2] || 0) ? ((d[5] || 0) / d[2]  * (toPersent ? 100 : 1)).toFixed(pointLength - (toPersent ? 2 : 0)) : 0 ; },
 };
 const outLabel = ["确诊", "死亡率", '死亡', '疑似'];
 let code = require(basePath + '/source/others/cityCode.json');
@@ -46,12 +46,6 @@ fs.readdirSync(basePath + "/data_json")
                 outLabel.forEach(label => {
                     tmp.push(labels[label](content[allWant[i]]));
                 });
-                // tmp.push(content[allWant[i]][2]);
-                // tmp.push(content[allWant[i]][3]);
-                // tmp.push(content[allWant[i]][4]);
-                // tmp.push(content[allWant[i]][5]);
-                // let rat = content[allWant[i]][5] / content[allWant[i]][2];
-                // tmp.push((rat + '').substring(0,2 + pointLength));
             } else {
                 if (file === "2020-02-01.json") {
                     console.log(`${i}\t${allWant[i]}`);
@@ -61,13 +55,13 @@ fs.readdirSync(basePath + "/data_json")
         }
         out.push(tmp);
     });
-fs.writeFileSync(basePath + `\\Iwant\\${d.getYear() + 1900}-${d.getMonth() + 1}-${d.getDate()}.csv`,out.map(_ => _.join(',')).join('\r\n'),'utf-8');
-
+const outFileName = basePath + `\\Iwant\\${d.getYear() + 1900}-${d.getMonth() + 1}-${d.getDate()}.csv`;
+fs.writeFileSync(outFileName,out.map(_ => _.join(',')).join('\r\n'),'utf-8');
+console.log("write out");
 let fn = function(filename) {
-    spawn(`converter.exe ${filename}`, {
+    console.log("dear" + filename);
+    spawn(`${basePath}\\converter.exe "${filename}"`, {
         shell: true,
     });
 };
-fs.readdirSync(basePath + '/Iwant')
-    .filter(_ => _.endsWith('.csv'))
-    .forEach(_ => fn(basePath + '/Iwant/' + _));
+fn(outFileName);

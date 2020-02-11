@@ -1,19 +1,6 @@
 const fs = require('fs');
 const spawn = eval('require')('child_process').spawn;
-let allWant = {
-    "中国": "000000",
-    "湖北":"420000",
-    "武汉":"420100",
-    "北京": "110000",
-    "上海": "310000",
-    "广州": "440100",
-    "浙江": "330000",
-    "河南": "410000",
-    "湖南": "430000",
-    "安徽": "340000",
-    // "深圳": "440300",
-    // "广东": "440000"
-};
+let allWant = require('./iwant.json');
 const basePath = (() => {
     const b = "2019-nCoV-Datas";
     const p = process.cwd();

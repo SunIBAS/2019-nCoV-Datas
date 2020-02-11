@@ -3,11 +3,13 @@ const dir = "./../datas";
 fs.readdirSync(dir)
     .filter(_ => _.endsWith(".txt"))
     .forEach(file => {
+        // let file = "2020-01-19.txt";
         let json = {};
-        fs.readFileSync(dir + "/" + file,'utf-8')
+        ret = fs.readFileSync(dir + "/" + file,'utf-8')
             .split(/[\r\n]/)
             .map(_ => _.split(','))
-            .forEach((line,ind) => {
+            .filter(_ => _.length > 2);
+            ret.forEach((line,ind) => {
                 if (ind && line.length) {
                     json[line[0]] = line;
                 }

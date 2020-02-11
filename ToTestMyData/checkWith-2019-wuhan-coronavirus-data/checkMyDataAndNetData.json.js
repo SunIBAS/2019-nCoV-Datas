@@ -28,7 +28,7 @@ const check = (netDataJson,myDataJson) => {
         netDataProvince[code.province2Code[getProvinceName(d.provinceName)]] = d.confirmedCount;
     });
     for (let i in myData) {
-        if (i != "000000" && (i + '').substring(2) === "0000") {
+        if (i !== "000000" && (i + '').substring(2) === "0000") {
             if (-1 === keys.indexOf(i)) {
                 keys.push(i);
             }
@@ -52,7 +52,7 @@ const check = (netDataJson,myDataJson) => {
     });
 };
 
-fs.readdirSync('./sources').forEach(file => {
+fs.readdirSync('./../../test/sources').forEach(file => {
     check(file,
         `${file.substring(0,4)}-${file.substring(4,6)}-${file.substring(6)}`);
 });

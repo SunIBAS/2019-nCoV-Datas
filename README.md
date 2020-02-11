@@ -8,7 +8,9 @@
 
 ![](./pic/api.png)
 
-# 今天（2020年2月10日22点31分）做数据处理时，发现和其他人数据有出入，故添加以下内容
+## 今天（2020年2月11日14点21分）开始放弃使用 csvFile 数据，理由是对比多方数据后发现偏差过大
+
+## 今天（2020年2月10日22点31分）做数据处理时，发现和其他人数据有出入，故添加以下内容
 
 - 添加 ToTestMyData 目录，内容说明如下
 
@@ -21,6 +23,10 @@
 // 挑选的代码是 filter.js
 
 // getNameCode.js 是将得到省市名对应的行政编码，然后存到文件netDataJson.json 中
+
+// checkNameCode.js 是检查 netDataJson.json 中的名字代码是否完全覆盖了
+
+// remendMyData.js 将该项目的数据认为是完全正确的，将其差异写入到我的 json 文件中，并重新统计省级数据
 ```
 
 ## 项目内容说明
@@ -37,10 +43,10 @@
 
 > 个人还是不推荐用 csvFile ，理由见[处理代码](source\dearCsv.js)即可，虽然很推荐 all.txt 但是没有更新了
 
-|数据|来源|
+|数据(❌表示放弃使用)|来源|
 |:--|:--|
 |all.txt|[GitHub项目：Wuhan-2019-nCoV](https://github.com/canghailan/Wuhan-2019-nCoV)|
-|csvFile\所有csv|[GitHub项目：DXY-2019-nCoV-Data](https://github.com/BlankerL/DXY-2019-nCoV-Data)|
+|❌csvFile\所有csv|[GitHub项目：DXY-2019-nCoV-Data](https://github.com/BlankerL/DXY-2019-nCoV-Data)|
 |jsonFile\所有json|百度疫情地图|
 
 - 脚本说明

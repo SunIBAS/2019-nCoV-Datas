@@ -15,7 +15,7 @@ const pro = code.province2Code;
         }
     };
     Number.prototype.toLength = function (len) {
-        return (len + '').toLength(len);
+        return (this + '').toLength(len);
     };
     String.prototype.toLength = function (len) {
         let n = this;

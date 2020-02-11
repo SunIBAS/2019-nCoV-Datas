@@ -7,3 +7,4 @@
 auth/
 *.text.js
 test/
+*.xlsx

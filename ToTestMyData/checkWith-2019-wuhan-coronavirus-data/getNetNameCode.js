@@ -14,8 +14,28 @@ const getName = (name) => {
         外地来津人员: false,
         宁东: false,
         "巴州": false,
+        外地来津: false,
+        外地来粤人员: false,
+        宁东管委会: false,
+        胡杨河: false,
+        未知地区: false,
+        未明确地区: false,
+        待明确: false
     };
     const _name = {
+        琼中县: "琼中黎族苗族自治县",
+        "鄂尔多斯鄂托克前旗": "鄂托克前旗",
+        "锡林郭勒盟二连浩特": "二连浩特市",
+        "通辽市经济开发区": "通辽市",
+        "兴安盟乌兰浩特": "乌兰浩特市",
+        "呼伦贝尔满洲里": "满洲里市",
+        "赤峰市松山区": "松山区",
+        "鄂尔多斯东胜区": "东胜区",
+        "锡林郭勒盟锡林浩特": "锡林郭勒盟",
+        "包头市东河区": "东河区",
+        "呼伦贝尔牙克石": "牙克石市",
+        "呼伦贝尔牙克石市": "牙克石市",
+        "陵水县": "陵水黎族自治县",
         "澳门": "澳门特别行政区",
         "台湾": "台湾省",
         "香港": "香港特别行政区",
@@ -40,9 +60,15 @@ const getName = (name) => {
         "第三师": "喀什地区",
         "兵团第四师": "伊宁市",
         "第五师": "博乐市",
+        "第六师": "五家渠市",
         "兵团第六师五家渠市": "五家渠市",
+        "第七师": "奎屯市",
         "兵团第七师": "奎屯市",
+        "第八师石河子": "石河子市",
+        "第八师": "石河子市",
+        "第八师石河子市": "石河子市",
         "兵团第八师石河子市": "石河子市",
+        "第九师": "额敏县",
         "兵团第九师": "额敏县",
         "第十师": "北屯市",
         // "第十一师": "乌鲁木齐市",
@@ -67,7 +93,9 @@ fs.readdirSync(basePath)
         const nd = require(basePath + file);
         nd.forEach(d => {
             let provinceCode = code.province2Code[getName(d.provinceName)];
-            netDataJson[d.provinceName] = provinceCode;
+            if (d.provinceName in netDataJson) {} else {
+                netDataJson[d.provinceName] = provinceCode;
+            }
             if (provinceCode) {
                 let cityCode = code.name2Code[provinceCode];
                 d.cities.forEach(city => {

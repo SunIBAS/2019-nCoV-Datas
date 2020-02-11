@@ -4,11 +4,17 @@ const {
     code2Province,
     code2Name
 } = require('./others/cityCode.json');
+const only = [
+    '2020-02-01.txt',
+    '2020-02-02.txt',
+    '2020-02-03.txt',
+];
 function toBeFormat(basePath,cb) {
     const dir = basePath + "/datas";
     cb = cb || (() => {});
     fs.readdirSync(dir)
         .filter(_ => _.endsWith(".txt"))
+        .filter(_ => only.indexOf(_) !== -1)
         .forEach(file => {
             // let file = "2020-02-09.txt";
             let json = [];
@@ -19,6 +25,7 @@ function toBeFormat(basePath,cb) {
                 .split(/[\r\n]/)
                 .map(_ => _.split(','))
                 .filter(_ => _.length > 1)
+                .sort((a,b) => parseInt(a) - parseInt(b))
                 .forEach((line,ind) => {
                     if (!ind) {
                         json.push(line);
@@ -125,8 +132,27 @@ function toBeFormat(basePath,cb) {
             }
             json2 = json2.sort((a,b) => parseInt(a) - parseInt(b))
                 .filter(_ => _[1]);
+            json = [];
+            curLine = ["000000","全国",0,0,0,0];
+            json2.forEach((line,ind) => {
+                if (!ind) {
+                    json.push(line);
+                } else if (line[0] === "000000") {}else {
+                    if (line[0].substring(2) === "0000") {
+                        curLine[2] += parseInt(line[2] || 0);
+                        curLine[3] += parseInt(line[3] || 0);
+                        curLine[4] += parseInt(line[4] || 0);
+                        curLine[5] += parseInt(line[5] || 0);
+                        json.push(line);
+                    } else {
+                        json.push(line);
+                    }
+                }
+            });
+            json.push(curLine);
+            console.log(curLine);
             fs.writeFileSync(basePath + '/datas/' + file,
-                json2.map(_=>_.join(',')).join('\r\n'),'utf-8');
+                json.map(_=>_.join(',')).join('\r\n'),'utf-8');
         });
     cb();
 }

@@ -13,7 +13,14 @@
 - 添加 ToTestMyData 目录，内容说明如下
 
 ```javascript
+// checkMyDataAndNetData.json.js 是用来对比GitHub上另一个项目的数据和我最终生成的 data_json 中的数据的
+// 该项目地址是 https://github.com/globalcitizen/2019-wuhan-coronavirus-data
+// 其中我把该项目中下载的数据放在了test文件目录下，并筛选出每日的最后一个提交文件
+// 例如 20200202-1103 和 20200202-1503 我会保留 1503
 
+// 挑选的代码是 filter.js
+
+//
 ```
 
 ## 项目内容说明

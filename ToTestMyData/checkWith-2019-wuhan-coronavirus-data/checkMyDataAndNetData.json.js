@@ -18,7 +18,7 @@ const check = (netDataJson,myDataJson) => {
     //const netDataJson = "20200205";
     //const myDataJson = "2020-02-05";
 
-    const netData = require(`./../sources/${netDataJson}`);
+    const netData = require(`./../../test/sources/${netDataJson}`);
     const myData = require(`./../../data_json/${myDataJson}`);
     const myDataProvince = {};
     const netDataProvince = {};

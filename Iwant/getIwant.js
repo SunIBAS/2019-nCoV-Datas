@@ -4,8 +4,15 @@ let allWant = {
     "中国": "000000",
     "湖北":"420000",
     "武汉":"420100",
-    "深圳": "440300",
-    "广东": "440000"
+    "北京": "110000",
+    "上海": "310000",
+    "广州": "440100",
+    "浙江": "330000",
+    "河南": "410000",
+    "湖南": "430000",
+    "安徽": "340000",
+    // "深圳": "440300",
+    // "广东": "440000"
 };
 const basePath = (() => {
     const b = "2019-nCoV-Datas";
@@ -21,7 +28,7 @@ const labels = {
     "死亡"(d) { return d[5] || 0; },
     "死亡率"(d) { return (d[2] || 0) ? ((d[5] || 0) / d[2]  * (toPersent ? 100 : 1)).toFixed(pointLength - (toPersent ? 2 : 0)) : 0 ; },
 };
-const outLabel = ["确诊", "死亡率", '死亡', '疑似'];
+const outLabel = ["确诊"]; //, "死亡率", '死亡', '疑似'];
 let code = require(basePath + '/source/others/cityCode.json');
 
 let out = [];

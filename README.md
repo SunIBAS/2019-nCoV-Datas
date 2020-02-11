@@ -20,7 +20,7 @@
 
 // 挑选的代码是 filter.js
 
-//
+// getNameCode.js 是将得到省市名对应的行政编码，然后存到文件netDataJson.json 中
 ```
 
 ## 项目内容说明

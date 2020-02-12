@@ -94,35 +94,13 @@ node extend/web/makeOneMapJson.js :: 更新地图数据
 ```javascript
 // 因为 csv 数据是从 1-31 开始
 // 而 json 数据是从 2-4 开始，存在交集
-// 这部分代码我没有使用 _dcsv 因为他的数据我真觉得很难处理和收据不全
+// 这部分代码我没有使用 _dcsv 现在已经不想支持 csv 的数据了，错误过多
 const dearFiles = () => {
     _djson(basePath,norepeat,function () {
         _json(basePath,norepeat,function () {
             //lastTask();
             console.log("完成");
         });
-    })
-};
-
-// _dcsv 版本如下
-const dearFiles = () => {
-    _dcsv(basePath,norepeat,function () {
-        _json(basePath,norepeat,function () {
-            //lastTask();
-            console.log("完成");
-        });
-    })
-};
-
-// 可以 _dcsv 和 _json 一起使用
-const dearFiles = () => {
-    _dcsv(basePath,norepeat,function () {
-        _djson(basePath,norepeat,function () {
-            _json(basePath,norepeat,function () {
-                //lastTask();
-                console.log("完成");
-            });
-        })
     })
 };
 ```

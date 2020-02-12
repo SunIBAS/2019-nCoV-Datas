@@ -217,7 +217,7 @@ for (let i in file) {
             }
         });
     out.sort((a,b) => parseInt(a) - parseInt(b));
-    fs.writeFileSync(`../datas/${file[i]}`,out.map(_ => _.join(',')).join('\r\n'));
+    fs.writeFileSync(`../test/csvData/${file[i]}`,out.map(_ => _.join(',')).join('\r\n'));
 }
 
 

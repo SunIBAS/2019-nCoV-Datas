@@ -137,12 +137,13 @@ function toBeFormat(basePath,cb) {
             json2.forEach((line,ind) => {
                 if (!ind) {
                     json.push(line);
-                } else if (line[0] === "000000") {}else {
+                } else if (line[0] === "000000") {
+                    curLine[3] = line[3];
+                    curLine[4] = line[4];
+                    curLine[5] = line[5];
+                } else {
                     if (line[0].substring(2) === "0000") {
                         curLine[2] += parseInt(line[2] || 0);
-                        curLine[3] += parseInt(line[3] || 0);
-                        curLine[4] += parseInt(line[4] || 0);
-                        curLine[5] += parseInt(line[5] || 0);
                         json.push(line);
                     } else {
                         json.push(line);

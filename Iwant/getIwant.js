@@ -74,6 +74,30 @@ let code = require(basePath + '/source/others/cityCode.json');
 let out = [];
 let tmp;
 let d = new Date();
+(() => {
+    let zeros = [0,0,0,0,0,0,0,0];
+
+    let changeZeroLength = function(deta) {
+        if (zeros.length < deta) {
+            for (;deta > zeros.length;deta--) {
+                zeros.push(0);
+            }
+        }
+    };
+    Number.prototype.toLength = function (len) {
+        return (this + '').toLength(len);
+    };
+    String.prototype.toLength = function (len) {
+        let n = this;
+        if (n.length < len) {
+            let deta = len - (n + '').length;
+            changeZeroLength(deta);
+            return zeros.slice(0,deta).join('') + n;
+        } else {
+            return n;
+        }
+    };
+})();
 // 将数据存储到 out 中
 fs.readdirSync(basePath + "/data_json")
     .filter(_ => _.endsWith('.json'))
@@ -99,7 +123,7 @@ fs.readdirSync(basePath + "/data_json")
         }
         out.push(tmp);
     });
-const outFileName = basePath + `\\Iwant\\${d.getYear() + 1900}-${d.getMonth() + 1}-${d.getDate()}.csv`;
+const outFileName = basePath + `\\Iwant\\${d.getYear() + 1900}${(d.getMonth() + 1).toLength(2)}${(d.getDate()).toLength(2)}.csv`;
 for (let i in detaLabel) {
     let ind = outLabel.indexOf(i);
     if (ind !== -1) {
@@ -116,7 +140,6 @@ for (let i in allWant) {
     });
 }
 out.unshift(tmp);
-
 fs.writeFileSync(outFileName,out.map(_ => _.join(',')).join('\r\n'),'utf-8');
 console.log("write out");
 let fn = function(filename) {
@@ -129,7 +152,7 @@ let fn = function(filename) {
 };
 fn(outFileName);
 
-"C:\Users\HUZENGYUN\Documents\git\文档\2019-nCoV-Datas\Iwant\formmatter\main_str.exe"
-"C:\Users\HUZENGYUN\Documents\git\文档\2019-nCoV-Datas\Iwant\2020-2-12.csv"
-"C:\\Users\\HUZENGYUN\\Documents\\git\\文档\\2019-nCoV-Datas\\Iwant\\formmatter\\nameKey.txt"
-"C:\Users\HUZENGYUN\Documents\git\文档\2019-nCoV-Datas\Iwant\2020-2-12.xlsx"
+// "C:\Users\HUZENGYUN\Documents\git\文档\2019-nCoV-Datas\Iwant\formmatter\main_str.exe"
+// "C:\Users\HUZENGYUN\Documents\git\文档\2019-nCoV-Datas\Iwant\2020-2-12.csv"
+// "C:\\Users\\HUZENGYUN\\Documents\\git\\文档\\2019-nCoV-Datas\\Iwant\\formmatter\\nameKey.txt"
+// "C:\Users\HUZENGYUN\Documents\git\文档\2019-nCoV-Datas\Iwant\2020-2-12.xlsx"

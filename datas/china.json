@@ -9,6 +9,10 @@
 		"heal_cuts": null,
 		"dead_cuts": null,
 		"confirm_cuts": null,
+		"now_confrim_cuts": null,
+		"now_severe_cuts": null,
+		"now_severe": null,
+		"now_confrim": null,
 		"ind": "01013"
 	},
 	{
@@ -21,6 +25,10 @@
 		"heal_cuts": null,
 		"dead_cuts": null,
 		"confirm_cuts": null,
+		"now_confrim_cuts": null,
+		"now_severe_cuts": null,
+		"now_severe": null,
+		"now_confrim": null,
 		"ind": "01014"
 	},
 	{
@@ -33,6 +41,10 @@
 		"heal_cuts": null,
 		"dead_cuts": null,
 		"confirm_cuts": null,
+		"now_confrim_cuts": null,
+		"now_severe_cuts": null,
+		"now_severe": null,
+		"now_confrim": null,
 		"ind": "01015"
 	},
 	{
@@ -45,6 +57,10 @@
 		"heal_cuts": null,
 		"dead_cuts": null,
 		"confirm_cuts": null,
+		"now_confrim_cuts": null,
+		"now_severe_cuts": null,
+		"now_severe": null,
+		"now_confrim": null,
 		"ind": "01016"
 	},
 	{
@@ -57,6 +73,10 @@
 		"heal_cuts": null,
 		"dead_cuts": null,
 		"confirm_cuts": null,
+		"now_confrim_cuts": null,
+		"now_severe_cuts": null,
+		"now_severe": null,
+		"now_confrim": null,
 		"ind": "01017"
 	},
 	{
@@ -69,6 +89,10 @@
 		"heal_cuts": null,
 		"dead_cuts": null,
 		"confirm_cuts": null,
+		"now_confrim_cuts": null,
+		"now_severe_cuts": null,
+		"now_severe": null,
+		"now_confrim": null,
 		"ind": "01018"
 	},
 	{
@@ -81,6 +105,10 @@
 		"heal_cuts": null,
 		"dead_cuts": null,
 		"confirm_cuts": null,
+		"now_confrim_cuts": null,
+		"now_severe_cuts": null,
+		"now_severe": null,
+		"now_confrim": null,
 		"ind": "01019"
 	},
 	{
@@ -93,6 +121,10 @@
 		"heal_cuts": null,
 		"dead_cuts": null,
 		"confirm_cuts": null,
+		"now_confrim_cuts": null,
+		"now_severe_cuts": null,
+		"now_severe": null,
+		"now_confrim": null,
 		"ind": "01020"
 	},
 	{
@@ -105,6 +137,10 @@
 		"heal_cuts": null,
 		"dead_cuts": null,
 		"confirm_cuts": null,
+		"now_confrim_cuts": null,
+		"now_severe_cuts": null,
+		"now_severe": null,
+		"now_confrim": null,
 		"ind": "01021"
 	},
 	{
@@ -117,6 +153,10 @@
 		"heal_cuts": null,
 		"dead_cuts": null,
 		"confirm_cuts": null,
+		"now_confrim_cuts": null,
+		"now_severe_cuts": null,
+		"now_severe": null,
+		"now_confrim": null,
 		"ind": "01022"
 	},
 	{
@@ -129,6 +169,10 @@
 		"heal_cuts": null,
 		"dead_cuts": null,
 		"confirm_cuts": null,
+		"now_confrim_cuts": null,
+		"now_severe_cuts": null,
+		"now_severe": null,
+		"now_confrim": null,
 		"ind": "01023"
 	},
 	{
@@ -141,6 +185,10 @@
 		"heal_cuts": null,
 		"dead_cuts": null,
 		"confirm_cuts": null,
+		"now_confrim_cuts": null,
+		"now_severe_cuts": null,
+		"now_severe": null,
+		"now_confrim": null,
 		"ind": "01024"
 	},
 	{
@@ -153,6 +201,10 @@
 		"heal_cuts": null,
 		"dead_cuts": null,
 		"confirm_cuts": null,
+		"now_confrim_cuts": null,
+		"now_severe_cuts": null,
+		"now_severe": "324",
+		"now_confrim": null,
 		"ind": "01025"
 	},
 	{
@@ -165,6 +217,10 @@
 		"heal_cuts": null,
 		"dead_cuts": null,
 		"confirm_cuts": null,
+		"now_confrim_cuts": null,
+		"now_severe_cuts": null,
+		"now_severe": "461",
+		"now_confrim": null,
 		"ind": "01026"
 	},
 	{
@@ -177,6 +233,10 @@
 		"heal_cuts": null,
 		"dead_cuts": null,
 		"confirm_cuts": null,
+		"now_confrim_cuts": null,
+		"now_severe_cuts": null,
+		"now_severe": "976",
+		"now_confrim": null,
 		"ind": "01027"
 	},
 	{
@@ -189,6 +249,10 @@
 		"heal_cuts": null,
 		"dead_cuts": null,
 		"confirm_cuts": null,
+		"now_confrim_cuts": null,
+		"now_severe_cuts": null,
+		"now_severe": "1239",
+		"now_confrim": null,
 		"ind": "01028"
 	},
 	{
@@ -201,6 +265,10 @@
 		"heal_cuts": null,
 		"dead_cuts": null,
 		"confirm_cuts": null,
+		"now_confrim_cuts": null,
+		"now_severe_cuts": null,
+		"now_severe": "1370",
+		"now_confrim": null,
 		"ind": "01029"
 	},
 	{
@@ -213,6 +281,10 @@
 		"heal_cuts": null,
 		"dead_cuts": null,
 		"confirm_cuts": null,
+		"now_confrim_cuts": null,
+		"now_severe_cuts": null,
+		"now_severe": "1527",
+		"now_confrim": null,
 		"ind": "01030"
 	},
 	{
@@ -225,6 +297,10 @@
 		"heal_cuts": null,
 		"dead_cuts": null,
 		"confirm_cuts": null,
+		"now_confrim_cuts": null,
+		"now_severe_cuts": null,
+		"now_severe": "1795",
+		"now_confrim": null,
 		"ind": "01031"
 	},
 	{
@@ -237,6 +313,10 @@
 		"heal_cuts": null,
 		"dead_cuts": null,
 		"confirm_cuts": null,
+		"now_confrim_cuts": null,
+		"now_severe_cuts": null,
+		"now_severe": "2110",
+		"now_confrim": null,
 		"ind": "02001"
 	},
 	{
@@ -249,6 +329,10 @@
 		"heal_cuts": null,
 		"dead_cuts": null,
 		"confirm_cuts": null,
+		"now_confrim_cuts": null,
+		"now_severe_cuts": null,
+		"now_severe": "2296",
+		"now_confrim": null,
 		"ind": "02002"
 	},
 	{
@@ -261,6 +345,10 @@
 		"heal_cuts": null,
 		"dead_cuts": null,
 		"confirm_cuts": null,
+		"now_confrim_cuts": null,
+		"now_severe_cuts": null,
+		"now_severe": "2788",
+		"now_confrim": null,
 		"ind": "02003"
 	},
 	{
@@ -273,6 +361,10 @@
 		"heal_cuts": null,
 		"dead_cuts": null,
 		"confirm_cuts": null,
+		"now_confrim_cuts": null,
+		"now_severe_cuts": null,
+		"now_severe": "3219",
+		"now_confrim": null,
 		"ind": "02004"
 	},
 	{
@@ -285,6 +377,10 @@
 		"heal_cuts": null,
 		"dead_cuts": null,
 		"confirm_cuts": null,
+		"now_confrim_cuts": null,
+		"now_severe_cuts": null,
+		"now_severe": "3859",
+		"now_confrim": null,
 		"ind": "02005"
 	},
 	{
@@ -297,6 +393,10 @@
 		"heal_cuts": null,
 		"dead_cuts": null,
 		"confirm_cuts": null,
+		"now_confrim_cuts": null,
+		"now_severe_cuts": null,
+		"now_severe": "4821",
+		"now_confrim": "29032",
 		"ind": "02006"
 	},
 	{
@@ -309,6 +409,10 @@
 		"heal_cuts": null,
 		"dead_cuts": null,
 		"confirm_cuts": null,
+		"now_confrim_cuts": null,
+		"now_severe_cuts": null,
+		"now_severe": "6101",
+		"now_confrim": "31823",
 		"ind": "02007"
 	},
 	{
@@ -321,6 +425,10 @@
 		"heal_cuts": null,
 		"dead_cuts": null,
 		"confirm_cuts": null,
+		"now_confrim_cuts": null,
+		"now_severe_cuts": null,
+		"now_severe": "6188",
+		"now_confrim": "33788",
 		"ind": "02008"
 	},
 	{
@@ -333,6 +441,10 @@
 		"heal_cuts": null,
 		"dead_cuts": null,
 		"confirm_cuts": null,
+		"now_confrim_cuts": null,
+		"now_severe_cuts": null,
+		"now_severe": "6484",
+		"now_confrim": "36043",
 		"ind": "02009"
 	},
 	{
@@ -345,6 +457,10 @@
 		"heal_cuts": null,
 		"dead_cuts": null,
 		"confirm_cuts": null,
+		"now_confrim_cuts": null,
+		"now_severe_cuts": null,
+		"now_severe": "7333",
+		"now_confrim": "37693",
 		"ind": "02010"
 	},
 	{
@@ -357,6 +473,10 @@
 		"heal_cuts": null,
 		"dead_cuts": null,
 		"confirm_cuts": null,
+		"now_confrim_cuts": null,
+		"now_severe_cuts": null,
+		"now_severe": "8204",
+		"now_confrim": "38874",
 		"ind": "02011"
 	},
 	{
@@ -369,6 +489,10 @@
 		"heal_cuts": "269",
 		"dead_cuts": "108",
 		"confirm_cuts": "1043",
+		"now_confrim_cuts": null,
+		"now_severe_cuts": null,
+		"now_severe": "8030",
+		"now_confrim": "52599",
 		"ind": "02012"
 	},
 	{
@@ -381,6 +505,26 @@
 		"heal_cuts": null,
 		"dead_cuts": null,
 		"confirm_cuts": null,
+		"now_confrim_cuts": null,
+		"now_severe_cuts": null,
+		"now_severe": "10204",
+		"now_confrim": "55823",
 		"ind": "02013"
+	},
+	{
+		"date": "02/14",
+		"confirm": "66576",
+		"suspect": "8969",
+		"dead": "1524",
+		"heal": "8101",
+		"confirm_cuts": "",
+		"suspect_cuts": "",
+		"dead_cuts": "",
+		"heal_cuts": "",
+		"now_confrim": "",
+		"now_severe": "",
+		"now_confrim_cuts": "",
+		"now_severe_cuts": "",
+		"ind": "02014"
 	}
 ]

@@ -204,7 +204,7 @@
 		"now_confrim_cuts": null,
 		"now_severe_cuts": null,
 		"now_severe": "324",
-		"now_confrim": null,
+		"now_confrim": "1870",
 		"ind": "01025"
 	},
 	{
@@ -220,7 +220,7 @@
 		"now_confrim_cuts": null,
 		"now_severe_cuts": null,
 		"now_severe": "461",
-		"now_confrim": null,
+		"now_confrim": "2613",
 		"ind": "01026"
 	},
 	{
@@ -236,7 +236,7 @@
 		"now_confrim_cuts": null,
 		"now_severe_cuts": null,
 		"now_severe": "976",
-		"now_confrim": null,
+		"now_confrim": "4349",
 		"ind": "01027"
 	},
 	{
@@ -252,7 +252,7 @@
 		"now_confrim_cuts": null,
 		"now_severe_cuts": null,
 		"now_severe": "1239",
-		"now_confrim": null,
+		"now_confrim": "5739",
 		"ind": "01028"
 	},
 	{
@@ -268,7 +268,7 @@
 		"now_confrim_cuts": null,
 		"now_severe_cuts": null,
 		"now_severe": "1370",
-		"now_confrim": null,
+		"now_confrim": "7417",
 		"ind": "01029"
 	},
 	{
@@ -284,7 +284,7 @@
 		"now_confrim_cuts": null,
 		"now_severe_cuts": null,
 		"now_severe": "1527",
-		"now_confrim": null,
+		"now_confrim": "9308",
 		"ind": "01030"
 	},
 	{
@@ -300,7 +300,7 @@
 		"now_confrim_cuts": null,
 		"now_severe_cuts": null,
 		"now_severe": "1795",
-		"now_confrim": null,
+		"now_confrim": "11289",
 		"ind": "01031"
 	},
 	{
@@ -316,7 +316,7 @@
 		"now_confrim_cuts": null,
 		"now_severe_cuts": null,
 		"now_severe": "2110",
-		"now_confrim": null,
+		"now_confrim": "13748",
 		"ind": "02001"
 	},
 	{
@@ -332,7 +332,7 @@
 		"now_confrim_cuts": null,
 		"now_severe_cuts": null,
 		"now_severe": "2296",
-		"now_confrim": null,
+		"now_confrim": "16400",
 		"ind": "02002"
 	},
 	{
@@ -348,7 +348,7 @@
 		"now_confrim_cuts": null,
 		"now_severe_cuts": null,
 		"now_severe": "2788",
-		"now_confrim": null,
+		"now_confrim": "19414",
 		"ind": "02003"
 	},
 	{
@@ -364,7 +364,7 @@
 		"now_confrim_cuts": null,
 		"now_severe_cuts": null,
 		"now_severe": "3219",
-		"now_confrim": null,
+		"now_confrim": "22980",
 		"ind": "02004"
 	},
 	{
@@ -380,7 +380,7 @@
 		"now_confrim_cuts": null,
 		"now_severe_cuts": null,
 		"now_severe": "3859",
-		"now_confrim": null,
+		"now_confrim": "26343",
 		"ind": "02005"
 	},
 	{
@@ -517,14 +517,14 @@
 		"suspect": "8969",
 		"dead": "1524",
 		"heal": "8101",
-		"confirm_cuts": "",
 		"suspect_cuts": "",
-		"dead_cuts": "",
 		"heal_cuts": "",
-		"now_confrim": "",
-		"now_severe": "",
+		"dead_cuts": "",
+		"confirm_cuts": "",
 		"now_confrim_cuts": "",
 		"now_severe_cuts": "",
+		"now_severe": "11053",
+		"now_confrim": "56873",
 		"ind": "02014"
 	}
 ]

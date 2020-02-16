@@ -128,6 +128,7 @@
             [/全省累计报告新型冠状病毒肺炎确诊病例[0-9]+例/g,(content) => toSpan(content,0)],
             //治愈
             [/累计治愈病例[0-9]+例/g,(content) => toSpan(content,1)],
+            [/新增出院病例[0-9]+例/g,(content) => toSpan(content,1)],
             // 死亡
             [/累计死亡病例[0-9]+例/g,(content) => toSpan(content,2)],
             // 疑似

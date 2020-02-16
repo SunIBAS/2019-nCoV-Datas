@@ -517,14 +517,30 @@
 		"suspect": "8969",
 		"dead": "1524",
 		"heal": "8101",
+		"suspect_cuts": "0",
+		"heal_cuts": "0",
+		"dead_cuts": "0",
+		"confirm_cuts": "1",
+		"now_confrim_cuts": "1",
+		"now_severe_cuts": "",
+		"now_severe": "11053",
+		"now_confrim": "56951",
+		"ind": "02014"
+	},
+	{
+		"date": "02/15",
+		"confirm": "68584",
+		"suspect": "8228",
+		"dead": "1666",
+		"heal": "9425",
 		"suspect_cuts": "",
 		"heal_cuts": "",
 		"dead_cuts": "",
 		"confirm_cuts": "",
 		"now_confrim_cuts": "",
 		"now_severe_cuts": "",
-		"now_severe": "11053",
-		"now_confrim": "56873",
-		"ind": "02014"
+		"now_severe": "11272",
+		"now_confrim": "57492",
+		"ind": "02015"
 	}
 ]

@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const port = 3000;
 const server = http.createServer();
+const spawn = require('child_process').spawn;
 const basePath = (() => {
     const b = "2019-nCoV-Datas";
     const p = process.cwd();
@@ -19,9 +20,23 @@ const resFile = (res,file) => {
     fs.createReadStream(file).pipe(res);
 };
 
+const openFile = (file) => {
+    spawn(`start notepad "${file}"`, {
+        shell: true,
+    });
+};
+
 server.on('request',function (req,res) {
     if (req.url === '/') {
         resFile(res,path.join(basePath,"SHOW.html"));
+    } else if (req.url.substring(0,'/open/'.length) === '/open/') {
+        let file = decodeURI(req.url.substring('/open/'.length));
+        if (fs.existsSync(path.join(basePath,file))) {
+            openFile(path.join(basePath,file));
+            res.end('ok');
+        } else {
+            res.end(`${path.join(basePath,file)} is not exist`);
+        }
     } else {
         let file = decodeURI(req.url);
         if (fs.existsSync(path.join(basePath,file))) {

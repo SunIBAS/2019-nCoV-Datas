@@ -6,22 +6,23 @@
     <style>
         button{
             border: none;
-            margin: 0;
+            margin: 10px;
             padding: 10px;
             background: #a50097;
             color: white;
             font-weight: bold;
             font-size: x-large;
-            margin-right: 10px;
         }
     </style>
 </head>
 <body>
-<div id="btns"></div>
+<div id="btns" style="position: fixed;top: 10px;height: 150px;">
+    <button onclick="openFile()">打开文件</button>
+</div>
 <!--<button onclick="showBySelect('中国')">中国</button>-->
 <!--<button onclick="showBySelect('广东')">广东</button>-->
 <!--<button onclick="showBySelect('湖北')">湖北</button>-->
-<div id="haha" style="font-size: large"></div>
+<div id="haha" style="font-size: large;margin-top: 150px"></div>
 </body>
 <script>
     // 6
@@ -189,6 +190,7 @@
         ]
     };
 
+    var curFile = '';
     String.prototype.showInDon = function(id) {
         if (!id) {
             document.body.style.fontSize = "large"
@@ -223,7 +225,8 @@
     };
     function showBySelect(tar) {
         if (tar in dear) {
-            fetch(`txts/${tar}.txt`)
+            curFile = `txts/${tar}.txt`;
+            fetch(curFile)
                 .then(_ => _.text())
                 .then(tmp => {
                     dear[tar].forEach(rpl => {
@@ -231,6 +234,11 @@
                     });
                     tmp.showInDon('haha');
                 });
+        }
+    }
+    function openFile() {
+        if (curFile) {
+            fetch('/open/' + curFile)
         }
     }
 </script>
